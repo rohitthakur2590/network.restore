@@ -1,0 +1,3 @@
+---
+- name: Invoke backup task
+  ansible.builtin.include_tasks: includes/cli_restore.yaml

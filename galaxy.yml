@@ -1,0 +1,17 @@
+---
+authors:
+  - Sagar Paul (@KB-perByte)
+dependencies:
+  ansible.netcommon: ">=6.0.0"
+  ansible.utils: ">=3.0.0"
+license_file: LICENSE
+name: restore
+description:
+  Ansible Network restore enables users to push backup configuration to
+  platforms and perform restore operations.
+namespace: network
+readme: README.md
+repository: https://github.com/redhat-cop/network.restore
+issues: https://github.com/redhat-cop/network.restore/issues
+tags: [networking]
+version: "1.0.0"
