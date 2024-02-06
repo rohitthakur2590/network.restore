@@ -117,7 +117,7 @@ ok: [<ROBIN>] => changed=false
   ansible_facts:
     delete_backup_from_dest: false
     delete_path: /wayne/manor/collections/ansible_collections/network/restore/roles/run/includes/delete
-    file_name: 2024-02-06_ios_10.0.148.141
+    file_name: 2024-02-06_ios_ROBIN
     health_check_path: /wayne/manor/collections/ansible_collections/network/restore/roles/run/includes/health_checks
     network_os: ios
     prepare_path: /wayne/manor/collections/ansible_collections/network/restore/roles/run/includes/prepare
@@ -258,7 +258,7 @@ ok: [<ROBIN>] => changed=false
 
 TASK [network.restore.run : Copy file from src to a network device] ************
 changed: [<ROBIN>] => changed=true
-  destination: flash:2024-02-06_ios_10.0.148.141.txt
+  destination: flash:2024-02-06_ios_ROBIN.txt
 
 TASK [network.restore.run : Prepare appliance for a restore operation] *********
 Loading collection cisco.ios from /wayne/manor/collections/ansible_collections/cisco/ios
@@ -310,7 +310,7 @@ ok: [<ROBIN>] => changed=false
   - |-
     Directory of bootflash:/
 
-    20      -rw-             5929   Feb 6 2024 11:35:19 +00:00  2024-02-06_ios_10.0.148.141.txt
+    20      -rw-             5929   Feb 6 2024 11:35:19 +00:00  2024-02-06_ios_ROBIN.txt
     131075  drwx            12288   Feb 6 2024 11:15:47 +00:00  tracelogs
     31      -rw-             5932   Feb 5 2024 11:53:55 +00:00  "<ROBIN>.txt
     131096  drwx             4096   Feb 1 2024 05:56:20 +00:00  .dbpersist
@@ -388,7 +388,7 @@ ok: [<ROBIN>] => changed=false
     ********
   invocation:
     module_args:
-      filename: 2024-02-06_ios_10.0.148.141.txt
+      filename: 2024-02-06_ios_ROBIN.txt
       force: true
 
 TASK [network.restore.run : Delete backup from appliance] **********************
@@ -427,7 +427,7 @@ ok: [<ROBIN>] => changed=false
       commands:
       - answer: null
         check_all: false
-        command: delete /force flash:2024-02-06_ios_10.0.148.141.txt
+        command: delete /force flash:2024-02-06_ios_ROBIN.txt
         newline: true
         output: null
         prompt: null
