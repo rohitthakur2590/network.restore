@@ -7,7 +7,6 @@
       - "eos"
       - "nxos"
       - "iosxr"
-      - "vyos"
 
 - name: Conditional test
   ansible.builtin.include_tasks: "includes/common/unsupported_platform.yaml"
