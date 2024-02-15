@@ -2,7 +2,7 @@
 authors:
   - Sagar Paul (@KB-perByte)
 dependencies:
-  ansible.netcommon: ">=6.1.0"
+  ansible.netcommon: ">=6.0.0"
   ansible.utils: ">=3.0.0"
 license_file: LICENSE
 name: restore
