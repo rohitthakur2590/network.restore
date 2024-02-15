@@ -1,5 +1,4 @@
 ---
----
 - name: Set supported platform list
   ansible.builtin.set_fact:
     supported_cli_restore:
@@ -12,5 +11,9 @@
     network_os: "{{ ansible_network_os.split('.')[2] }}"
 
 - name: Invoke backup task
-  ansible.builtin.include_tasks: includes/cli_restore.yaml
-    when: ansible_network_os.split('.')[-1] not in supported_platforms
+  ansible.builtin.include_tasks: "includes/cli_restore.yaml"
+  when: network_os not in supported_cli_restore
+
+- name: Invoke cli specific backup task
+  ansible.builtin.include_tasks: "includes/cli_restore_config.yaml"
+  when: network_os not in supported_plugin_restore
