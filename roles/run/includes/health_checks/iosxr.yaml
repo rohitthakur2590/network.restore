@@ -1,11 +1,11 @@
 ---
-- name: Set IOSXE directory - content specific facts
+- name: Set IOSXR directory - content specific facts
   ansible.builtin.set_fact:
-    dest_dir: "flash:"
+    dest_dir: "/misc/scratch/"
 
 - name: Parse free space information
   ansible.utils.cli_parse:
-    command: "dir /all | section free"
+    command: "dir /all | include free"
     parser:
       name: ansible.netcommon.content_templates
       template_path: "{{ tmplt_path }}/{{ network_os }}.yaml"
@@ -26,4 +26,4 @@
 
 - name: Assert file sizes
   assert:
-    that: restore_file_data.stat.size < appliance_dir_data.free_bytes
+    that: restore_file_data.stat.size < appliance_dir_data.free_bytes/1024

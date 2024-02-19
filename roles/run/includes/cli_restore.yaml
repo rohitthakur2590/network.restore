@@ -15,7 +15,7 @@
   ansible.netcommon.net_put:
     src: "{{ network_backup_path }}"
     protocol: scp
-    dest: "flash:{{ file_name }}.txt"
+    dest: "{{ dest_dir }}{{ file_name }}.txt"
 
 - name: Prepare appliance for a restore operation
   ansible.builtin.include_tasks: "{{ prepare_path }}/{{ network_os }}.yaml"
