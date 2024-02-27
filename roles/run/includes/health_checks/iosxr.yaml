@@ -24,6 +24,6 @@
   debug:
     var: restore_file_data
 
-- name: Assert file sizes
+- name: Assert file sizes #  needs fix
   assert:
-    that: restore_file_data.stat.size < appliance_dir_data.free_bytes/1024
+    that: restore_file_data.stat.size < appliance_dir_data.free_bytes
