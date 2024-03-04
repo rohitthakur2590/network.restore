@@ -24,6 +24,7 @@
   ansible.netcommon.cli_restore:
     force: true
     filename: "{{ file_name }}.txt"
+    path: "{{ appliance_dir }}"
 
 - name: Delete backup from appliance
   ansible.builtin.include_tasks: "{{ delete_path }}/{{ network_os }}.yaml"

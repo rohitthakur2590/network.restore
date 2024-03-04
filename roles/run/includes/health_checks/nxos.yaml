@@ -12,19 +12,5 @@
       template_path: "{{ tmplt_path }}/{{ network_os }}.yaml"
     set_fact: appliance_dir_data
 
-- name: Check restore file size
-  ansible.builtin.stat:
-    path: "{{ network_backup_path }}"
-  register: restore_file_data
-
-- name: Inspect appliance size
-  ansible.builtin.debug:
-    var: appliance_dir_data
-
-- name: Inspect restore file size
-  ansible.builtin.debug:
-    var: restore_file_data
-
-- name: Assert file sizes
-  assert:
-    that: restore_file_data.stat.size < appliance_dir_data.free_bytes
+- name: Include task to compare file size with free space
+  ansible.builtin.include_tasks: "includes/common/healthcheck_common.yaml"
