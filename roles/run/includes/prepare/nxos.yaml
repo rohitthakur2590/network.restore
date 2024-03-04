@@ -1,0 +1,4 @@
+---
+- name: Set NXOS directory - content specific facts
+  ansible.builtin.set_fact:
+    dest_dir: "bootflash:/"

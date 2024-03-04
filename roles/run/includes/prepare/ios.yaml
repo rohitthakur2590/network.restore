@@ -3,8 +3,3 @@
   cisco.ios.ios_config:
     lines:
       - "archive"
-
-- name: Dir the flash
-  cisco.ios.ios_command:
-    commands:
-      - command: "dir"

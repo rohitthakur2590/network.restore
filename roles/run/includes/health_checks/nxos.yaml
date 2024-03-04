@@ -1,12 +1,12 @@
 ---
-- name: Set IOSXE directory - content specific facts
+- name: Set NXOS directory - content specific facts
   ansible.builtin.set_fact:
-    dest_dir: "flash:"
-    appliance_dir: "flash://"
+    dest_dir: "bootflash:/"
+    appliance_dir: "bootflash:///"
 
 - name: Parse free space information
   ansible.utils.cli_parse:
-    command: "dir /all | section free"
+    command: "dir | include free"
     parser:
       name: ansible.netcommon.content_templates
       template_path: "{{ tmplt_path }}/{{ network_os }}.yaml"

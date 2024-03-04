@@ -2,6 +2,7 @@
 - name: Set IOSXR directory - content specific facts
   ansible.builtin.set_fact:
     dest_dir: "/misc/scratch/"
+    appliance_dir: ""
 
 - name: Parse free space information
   ansible.utils.cli_parse:
