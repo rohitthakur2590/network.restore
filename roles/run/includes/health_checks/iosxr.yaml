@@ -17,6 +17,10 @@
     path: "{{ network_backup_path }}"
   register: restore_file_data
 
+- name: Make appliance data unit relevant
+  ansible.builtin.set_fact:
+    applinace_data_dir_bytes: "{{ appliance_dir_data.free_bytes * 1024 }}"
+
 - name: Inspect appliance size
   ansible.builtin.debug:
     var: appliance_dir_data
@@ -25,6 +29,6 @@
   ansible.builtin.debug:
     var: restore_file_data
 
-- name: Assert file sizes #  needs fix appliance responds in kb we compare it to bytes
+- name: Assert file sizes
   assert:
-    that: restore_file_data.stat.size < appliance_dir_data.free_bytes
+    that: restore_file_data.stat.size < applinace_data_dir_bytes
