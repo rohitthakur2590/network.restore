@@ -7,6 +7,4 @@
 - name: Delete the backup file post backup
   cisco.ios.ios_command:
     commands:
-      - command: "delete /force flash:{{ file_name }}.txt"
-        # prompt: Delete bootflash:/{{ file_name }}.txt\? \[confirm\]
-        # answer: "y"
+      - command: "delete /force {{ dest_dir }}{{ file_name }}.txt"
