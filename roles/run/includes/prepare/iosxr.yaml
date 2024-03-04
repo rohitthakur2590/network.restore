@@ -1,4 +1,5 @@
 ---
-- name: Set IOSXR directory - content specific facts
-  ansible.builtin.set_fact:
-    dest_dir: "/misc/scratch/"
+- name: Prepare appliance for restore
+  ansible.builtin.debug:
+    msg:
+      - "Task to prepare appliance for restore operation"

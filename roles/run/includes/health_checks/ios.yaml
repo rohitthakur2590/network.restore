@@ -18,11 +18,11 @@
   register: restore_file_data
 
 - name: Inspect appliance size
-  debug:
+  ansible.builtin.debug:
     var: appliance_dir_data
 
 - name: Inspect restore file size
-  debug:
+  ansible.builtin.debug:
     var: restore_file_data
 
 - name: Assert file sizes
