@@ -1,5 +1,5 @@
 ---
-- name: configurable backup path
+- name: Configurable backup path
   ansible.netcommon.cli_backup:
     filename: backp_junos5Martest.cfg
     dir_path: ./tests/data
