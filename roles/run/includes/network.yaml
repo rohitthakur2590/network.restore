@@ -2,12 +2,12 @@
 - name: Set supported platform list
   ansible.builtin.set_fact:
     supported_cli_restore:
-      - "junos"
       - "eos"
     supported_plugin_restore:
       - "nxos"
       - "iosxr"
       - "ios"
+      - "junos"
     network_os: "{{ ansible_network_os.split('.')[2] }}"
 
 - name: Invoke backup task

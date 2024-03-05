@@ -1,5 +1,5 @@
 ---
 - name: Delete the backup file post backup
-  cisco.nxos.nxos_command:
+  junipernetworks.junos.junos_command:
     commands:
-      - command: "delete {{ appliance_dir }}{{ file_name }}.txt no-prompt"
+      - command: "file delete {{ appliance_dir }}{{ file_name }}.txt"
