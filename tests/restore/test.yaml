@@ -1,6 +1,6 @@
 ---
-- name: Test IOS-XE network.restore
-  hosts: ios
+- name: Run restore tests
+  hosts: junos
   gather_facts: false
   roles:
     - tests
