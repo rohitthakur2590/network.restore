@@ -2,7 +2,7 @@
 [
   {
     "name": "free_space",
-    "getval": '''(?P<free_bytes>\d+)\sbytes\sfree''',
+    "getval": '''\S+\s*\d+\s*\d+\s*(?P<free_bytes>\d+)\s''',
     "result": { "free_bytes": "{{ free_bytes }}" },
   },
 ]
