@@ -2,4 +2,4 @@
 - name: Restore the config
   arista.eos.eos_config:
     replace: config
-    src: "{{ network_backup_path }}"
+    src: "{{ network_restore_backup_path }}"
