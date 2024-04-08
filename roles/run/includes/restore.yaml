@@ -1,7 +1,4 @@
 ---
-- name: PRINT
-  ansible.builtin.debug:
-    msg: "{{ data_store }}"
 - name: Set default backup path
   ansible.builtin.set_fact:
     network_restore_backup_path: "./tmp_backup"

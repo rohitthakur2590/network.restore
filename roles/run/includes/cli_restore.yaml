@@ -24,14 +24,6 @@
 - name: Prepare appliance for a restore operation
   ansible.builtin.include_tasks: "{{ prepare_path }}/{{ network_os }}.yaml"
 
-- name: PRINT 1
-  ansible.builtin.debug:
-    msg: "{{ file_name }}"
-
-- name: PRINT 1
-  ansible.builtin.debug:
-    msg: "{{ appliance_dir }}"
-
 - name: Restore operation for {{ network_os }}
   ansible.netcommon.cli_restore:
     filename: "{{ file_name }}.txt"
