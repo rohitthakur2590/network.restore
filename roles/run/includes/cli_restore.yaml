@@ -10,7 +10,7 @@
     prepare_path: "{{ role_path }}/includes/prepare"
     delete_path: "{{ role_path }}/includes/delete"
     health_check_path: "{{ role_path }}/includes/health_checks"
-    delete_backup_from_dest: false
+    delete_backup_from_dest: true
 
 - name: Check if file copy is possible
   ansible.builtin.include_tasks: "{{ health_check_path }}/{{ network_os }}.yaml"
@@ -23,6 +23,14 @@
 
 - name: Prepare appliance for a restore operation
   ansible.builtin.include_tasks: "{{ prepare_path }}/{{ network_os }}.yaml"
+
+- name: PRINT 1
+  ansible.builtin.debug:
+    msg: "{{ file_name }}"
+
+- name: PRINT 1
+  ansible.builtin.debug:
+    msg: "{{ appliance_dir }}"
 
 - name: Restore operation for {{ network_os }}
   ansible.netcommon.cli_restore:

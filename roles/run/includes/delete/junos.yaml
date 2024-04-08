@@ -1,6 +1,14 @@
 ---
+- name: PRINT
+  ansible.builtin.debug:
+    msg: "{{ appliance_dir }}"
+
+- name: PRINT
+  ansible.builtin.debug:
+    msg: "{{ file_name }}"
+
 - name: Delete the backup file post backup
   connection: ansible.netcommon.netconf
   junipernetworks.junos.junos_command:
     commands:
-      - command: "file delete {{ appliance_dir }}{{ file_name }}.txt"
+      - file delete {{ appliance_dir }}{{ file_name }}.txt
