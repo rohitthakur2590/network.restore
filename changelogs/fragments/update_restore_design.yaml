@@ -1,5 +1,5 @@
 ---
-minor:
-  - resdesign network restore w.r.t validated content pattern to be used with network backup.
-  - Add suppor for SCM operations to fetch backed up files from Github.
-  - Fix the tasks to make the copied files cleanup for junos.
+minor_changes:
+  - Redesigned network restore w.r.t validated content pattern for network backup.
+  - Add support for SCM operations to fetch backed-up files from Github.
+  - Fix the tasks to make the copied files cleanup for Junos.
