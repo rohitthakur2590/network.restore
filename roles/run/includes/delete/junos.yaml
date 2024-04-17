@@ -3,4 +3,4 @@
   connection: ansible.netcommon.netconf
   junipernetworks.junos.junos_command:
     commands:
-      - command: "file delete {{ appliance_dir }}{{ file_name }}.txt"
+      - file delete {{ appliance_dir }}{{ file_name }}.txt

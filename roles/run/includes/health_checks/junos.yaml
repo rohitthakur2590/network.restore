@@ -1,8 +1,8 @@
 ---
 - name: Set JUNOS directory - content specific facts
   ansible.builtin.set_fact:
-    dest_dir: "/var/home/ansible/:"
-    appliance_dir: ":"
+    dest_dir: "/var/home/ansible/"
+    appliance_dir: "/var/home/ansible/"
 
 - name: Parse free space information
   connection: ansible.netcommon.network_cli

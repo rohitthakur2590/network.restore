@@ -1,7 +1,7 @@
 ---
 - name: Check restore file size
   ansible.builtin.stat:
-    path: "{{ network_backup_path }}"
+    path: "{{ network_restore_backup_path }}"
   register: restore_file_data
 
 - name: Inspect appliance size

@@ -10,7 +10,7 @@
       - "junos"
     network_os: "{{ ansible_network_os.split('.')[2] }}"
 
-- name: Invoke backup task
+- name: Invoke restore
   ansible.builtin.include_tasks: "includes/cli_restore.yaml"
   when: network_os not in supported_cli_restore
 
