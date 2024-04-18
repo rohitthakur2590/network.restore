@@ -6,3 +6,4 @@ doc_changes:
   - Amend the README file to specify the minimum required platform collections.
 trivial:
   - Rectify the description in galaxy.yaml to accurately reflect validated content restoration.
+  - Update github workflow jobs.
