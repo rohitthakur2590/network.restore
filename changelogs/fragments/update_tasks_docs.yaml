@@ -5,5 +5,4 @@ minor_changes:
 doc_changes:
   - Amend the README file to specify the minimum required platform collections.
 trivial:
-  -Rectify the description in galaxy.yaml to accurately reflect validated content restoration.
-
+  - Rectify the description in galaxy.yaml to accurately reflect validated content restoration.
