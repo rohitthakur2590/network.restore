@@ -1,12 +1,12 @@
 ---
-- name: Set IOSXR directory - content specific facts
+- name: Set EOS directory - content specific facts
   ansible.builtin.set_fact:
-    dest_dir: "/misc/"
-    appliance_dir: "/misc/"
+    dest_dir: "/mnt/flash/"
+    appliance_dir: "flash:/"
 
 - name: Parse free space information
   ansible.utils.cli_parse:
-    command: "dir /all | include free"
+    command: "show file systems | free"
     parser:
       name: ansible.netcommon.content_templates
       template_path: "{{ tmplt_path }}/{{ network_os }}.yaml"

@@ -15,11 +15,11 @@ This repository contains the `network.restore` Ansible Collection.
 - [Requires Content Collections](https://github.com/redhat-cop/network.restore/blob/main/galaxy.yml#L5https://forum.ansible.com/c/news/5/none)
 - [Testing Requirements](https://github.com/redhat-cop/network.restore/blob/main/test-requirements.txt)
 - Users also need to include platform collections as per their requirements. The supported platform collections are:
-  - [arista.eos](https://github.com/ansible-collections/arista.eos)
-  - [cisco.ios](https://github.com/ansible-collections/cisco.ios)
-  - [cisco.iosxr](https://github.com/ansible-collections/cisco.iosxr)
-  - [cisco.nxos](https://github.com/ansible-collections/cisco.nxos)
-  - [junipernetworks.junos](https://github.com/ansible-collections/junipernetworks.junos)
+  - [arista.eos](https://github.com/ansible-collections/arista.eos) >= v9.0.0
+  - [cisco.ios](https://github.com/ansible-collections/cisco.ios) >= v8.0.0
+  - [cisco.iosxr](https://github.com/ansible-collections/cisco.iosxr) >= v9.0.0
+  - [cisco.nxos](https://github.com/ansible-collections/cisco.nxos) >= v8.0.0
+  - [junipernetworks.junos](https://github.com/ansible-collections/junipernetworks.junos) >= v8.0.0
 
 ## Installation
 To consume this Validated Content from Automation Hub, the following needs to be added to ansible.cfg:
