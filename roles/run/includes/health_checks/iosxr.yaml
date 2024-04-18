@@ -1,8 +1,8 @@
 ---
 - name: Set IOSXR directory - content specific facts
   ansible.builtin.set_fact:
-    dest_dir: "/misc/scratch/"
-    appliance_dir: ""
+    dest_dir: "/misc/"
+    appliance_dir: "/misc/"
 
 - name: Parse free space information
   ansible.utils.cli_parse:
@@ -12,23 +12,5 @@
       template_path: "{{ tmplt_path }}/{{ network_os }}.yaml"
     set_fact: appliance_dir_data
 
-- name: Check restore file size
-  ansible.builtin.stat:
-    path: "{{ network_restore_backup_path }}"
-  register: restore_file_data
-
-- name: Make appliance data unit relevant
-  ansible.builtin.set_fact:
-    applinace_data_dir_bytes: "{{ appliance_dir_data.free_bytes * 1024 }}"
-
-- name: Inspect appliance size
-  ansible.builtin.debug:
-    var: appliance_dir_data
-
-- name: Inspect restore file size
-  ansible.builtin.debug:
-    var: restore_file_data
-
-- name: Assert file sizes
-  assert:
-    that: restore_file_data.stat.size < applinace_data_dir_bytes
+- name: Include task to compare file size with free space
+  ansible.builtin.include_tasks: "includes/common/healthcheck_common.yaml"
