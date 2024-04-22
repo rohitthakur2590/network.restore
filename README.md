@@ -142,7 +142,7 @@ Release notes are available [here](https://github.com/redhat-cop/network.restore
 
 ## Related information
 
-  - [Developing network resource modules](https://github.com/ansible-network/networking-docs/blob/main/rm_dev_guide.md)
+- [Developing network resource modules](https://github.com/ansible-network/networking-docs/blob/main/rm_dev_guide.md)
 - [Ansible Networking docs](https://github.com/ansible-network/networking-docs)
 - [Ansible Collection Overview](https://github.com/ansible-collections/overview)
 - [Ansible Roles overview](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_reuse_roles.html)
