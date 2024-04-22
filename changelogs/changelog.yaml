@@ -2,18 +2,25 @@ ancestor: null
 releases:
   1.0.0:
     changes:
+      bugfixes:
+      - Enable platfom specific network.restore options.
+      doc_changes:
+      - Amend the README file to specify the minimum required platform collections.
+      - Update local datastore backup example.
+      - Update the reference to OpenSSF Best Practices for better alignment.
       minor_changes:
-        - Support deploy_collection action.
-      release_summary:
-        Release 1.0.0 with support for health checks and collector
-        setup.
+      - Add support for SCM operations to fetch backed-up files from Github.
+      - Fix the tasks to make the copied files cleanup for Junos.
+      - Implement cli_restore tasks workflow for eos appliance.
+      - Redesigned network restore w.r.t validated content pattern for network backup.
+      - Revise the task sequence for IOS XR appliance to enhance efficiency.
+      - Support deploy_collection action.
     fragments:
-      - basic.yaml
+    - basic.yaml
+    - platform.yaml
+    - update_openssf.yaml
+    - update_restore_design.yaml
+    - update_tasks_docs.yaml
     plugins:
-      filter:
-        - description:
-            Generate the filtered health check dict based on the provided
-            target.
-          name: health_check_view
-          namespace: null
-    release_date: "2024-02-07"
+      filter: []
+    release_date: '2024-02-07'
