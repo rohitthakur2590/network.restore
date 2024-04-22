@@ -1,7 +1,7 @@
 ---
 authors:
   - Sagar Paul (@KB-perByte)
-  - Rohit Thakur (@rothakur2590)
+  - Rohit Thakur (@rohitthakur2590)
 dependencies:
   ansible.netcommon: ">=6.1.0"
   ansible.utils: ">=3.0.0"
@@ -15,4 +15,4 @@ readme: README.md
 repository: https://github.com/redhat-cop/network.restore
 issues: https://github.com/redhat-cop/network.restore/issues
 tags: [networking]
-version: "1.0.0"
+version: 1.0.0
