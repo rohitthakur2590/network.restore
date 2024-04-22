@@ -1,6 +1,6 @@
 # Ansible Network Restore
 
-[![CI](https://github.com/redhat-cop/network.restore/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/redhat-cop/network.restore/actions/workflows/tests.yml)[![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/7660/badge)](https://bestpractices.coreinfrastructure.org/projects/7660)
+[![CI](https://github.com/redhat-cop/network.restore/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/redhat-cop/network.restore/actions/workflows/tests.yml)[![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/8823/badge)](https://bestpractices.coreinfrastructure.org/projects/8823)
 
 This repository contains the `network.restore` Ansible Collection.
 
@@ -58,8 +58,8 @@ run.yml
         name: network.restore.run
       vars:
         operation: restore
-        network_backup_path: ./network_local_backup/network/backup_iosxe.cfg
-        delete_backup_from_dest: true
+        data_store:
+          local: "{{ network_backup_path }}"
 ```
 
 #### Fetch backup from remote repo and restore a network appliance's configuration.
@@ -98,7 +98,7 @@ e.g. `collections_root/ansible_collections/network/restore`, run:
   tox -e py39-sanity
 ```
 
-To run integration tests, ensure that your inventory has a `network_base` group.
+To run integration tests, ensure that your inventory has a `network_restore` group.
 Depending on what test target you are running, comment out the host(s).
 
 ```shell
@@ -142,7 +142,7 @@ Release notes are available [here](https://github.com/redhat-cop/network.restore
 
 ## Related information
 
-- [Developing network resource modules](https://github.com/ansible-network/networking-docs/blob/main/rm_dev_guide.md)
+  - [Developing network resource modules](https://github.com/ansible-network/networking-docs/blob/main/rm_dev_guide.md)
 - [Ansible Networking docs](https://github.com/ansible-network/networking-docs)
 - [Ansible Collection Overview](https://github.com/ansible-collections/overview)
 - [Ansible Roles overview](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_reuse_roles.html)
