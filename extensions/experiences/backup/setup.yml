@@ -32,7 +32,7 @@ controller_templates:
   - name: Operations / Network Backup
     instance_groups:
       - default
-    inventory: Network Backup Experience Inventory
+    inventory: Demo Inventory
     project: Network Backup Experience Playbooks Project
     playbook: extensions/experiences/backup/playbooks/diff_backup_remote.yaml
     job_tags: operations
