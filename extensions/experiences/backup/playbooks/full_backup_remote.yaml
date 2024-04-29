@@ -1,0 +1,22 @@
+---
+- hosts: all
+  gather_facts: true
+  tasks:
+    - name: Perform pre-run checks
+      ansible.builtin.include_tasks:
+        file: ./pre_remote_validation.yaml
+
+    - name: "Start full backup for {{ inventory_hostname }}"
+      ansible.builtin.include_role:
+        name: network.backup.run
+      vars:
+        operation: backup
+        type: full
+        data_store:
+          scm:
+            origin:
+              url: "{{ GH_REPO }}"
+              token: "{{ GH_ACCESS_TOKEN }}"
+              user:
+                name: "{{ GH_USERNAME }}"
+                email: "{{ GH_EMAIL }}"
