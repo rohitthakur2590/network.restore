@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Check if GH_REPO, NETWORK defined
+  block:
     - name: Check if GitHub repository for backup is configured
       ansible.builtin.assert:
         that:
