@@ -26,7 +26,7 @@ controller_templates:
       - default
     inventory: Demo Inventory
     project: Network Backup Experience Playbooks Project
-    playbook: extensions/experiences/patching/playbooks/full_backup_remote.yaml
+    playbook: extensions/experiences/backup/playbooks/full_backup_remote.yaml
     job_tags: operations
     labels: operations
   - name: Operations / Network Backup
@@ -34,6 +34,6 @@ controller_templates:
       - default
     inventory: Network Backup Experience Inventory
     project: Network Backup Experience Playbooks Project
-    playbook: extensions/experiences/patching/playbooks/diff_backup_remote.yaml
+    playbook: extensions/experiences/backup/playbooks/diff_backup_remote.yaml
     job_tags: operations
     labels: operations
