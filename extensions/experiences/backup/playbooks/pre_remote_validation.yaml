@@ -1,3 +1,4 @@
+---
 - block:
     - name: Check if GitHub repository for backup is configured
       ansible.builtin.assert:
