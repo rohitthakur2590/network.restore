@@ -1,20 +1,16 @@
 ---
-- name: Delete junos hostname config
+- name: Delete eos hostname config
   register: result
-  junipernetworks.junos.junos_hostname:
+  arista.eos.eos_hostname:
     config:
     state: deleted
-  vars:
-    ansible_connection: ansible.netcommon.netconf
 
 - name: Add hostname config
   register: result
-  junipernetworks.junos.junos_hostname:
+  arista.eos.eos_hostname:
     config:
       hostname: "DemoTest"
     state: merged
-  vars:
-    ansible_connection: ansible.netcommon.netconf
 
 - name: Include backup task
   ansible.builtin.include_tasks: create_backup.yaml
@@ -35,10 +31,8 @@
 
 - name: Get hostname configuration
   register: result
-  junipernetworks.junos.junos_hostname:
+  arista.eos.eos_hostname:
     state: gathered
-  vars:
-    ansible_connection: ansible.netcommon.netconf
 
 - name: Assert that interface config change is reflected on device
   ansible.builtin.assert:
@@ -46,7 +40,5 @@
       - result.gathered['hostname'] == "DemoTest restored"
 
 - name: Delete hostname config
-  junipernetworks.junos.junos_hostname:
+  arista.eos.eos_hostname:
     state: deleted
-  vars:
-    ansible_connection: ansible.netcommon.netconf
