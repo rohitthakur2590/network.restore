@@ -15,4 +15,4 @@ readme: README.md
 repository: https://github.com/redhat-cop/network.restore
 issues: https://github.com/redhat-cop/network.restore/issues
 tags: [networking]
-version: 1.0.0
+version: 2.0.0
