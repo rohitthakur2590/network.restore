@@ -1,157 +1,28 @@
 # Ansible Network Restore
 
-[![CI](https://github.com/redhat-cop/network.restore/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/redhat-cop/network.restore/actions/workflows/tests.yml)[![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/8823/badge)](https://bestpractices.coreinfrastructure.org/projects/8823)
+## Notice of Consolidation and Archival
 
-This repository contains the `network.restore` Ansible Collection.
+The `network.restore` validated content has been consolidated into the `network.backup` validated content to streamline and enhance the functionality of network backup and restore operations.
 
-## About
-- Ansible Network Restore Collection contains a role that provides a platform-agnostic way of managing network restores on supported network platforms. This collection provides the user the capabilities to fetch backups from remote or local data stores and perform restore config.
+### New Location
 
-- Network Restore collection can be used by anyone who is looking to manage and maintain network infrastructure, automate the restore process, and ensure data is regularly and securely backed up. This includes system administrators and IT professionals.
+All functionalities previously provided by the `network.restore` collection are now available in the `network.backup` collection. You can find the updated and consolidated validated content at the following repository:
 
-## Requirements
+[network.backup Validated Content](https://github.com/redhat-cop/network.backup)
 
-- [Requires Ansible](https://github.com/redhat-cop/network.restore/blob/main/meta/runtime.yml)
-- [Requires Content Collections](https://github.com/redhat-cop/network.restore/blob/main/galaxy.yml#L5https://forum.ansible.com/c/news/5/none)
-- [Testing Requirements](https://github.com/redhat-cop/network.restore/blob/main/test-requirements.txt)
-- Users also need to include platform collections as per their requirements. The supported platform collections are:
-  - [arista.eos](https://github.com/ansible-collections/arista.eos) >= v9.0.0
-  - [cisco.ios](https://github.com/ansible-collections/cisco.ios) >= v8.0.0
-  - [cisco.iosxr](https://github.com/ansible-collections/cisco.iosxr) >= v9.0.0
-  - [cisco.nxos](https://github.com/ansible-collections/cisco.nxos) >= v8.0.0
-  - [junipernetworks.junos](https://github.com/ansible-collections/junipernetworks.junos) >= v8.0.0
+### Archival Information
 
-## Installation
-To consume this Validated Content from Automation Hub, the following needs to be added to ansible.cfg:
-```
-[galaxy]
-server_list = automation_hub
+As a result of this consolidation, the `network.restore` repository is now archived and will no longer be maintained. We encourage all users to transition to the `network.backup` collection for continued support and updates.
 
-[galaxy_server.automation_hub]
-url=https://console.redhat.com/api/automation-hub/content/published/
-auth_url=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
-token=<SuperSecretToken>
-```
+### Migration Guide
 
-Get the required token from the [Automation Hub Web UI](https://console.redhat.com/ansible/automation-hub/token).
+To migrate your existing playbooks and roles to the `network.backup` collection, please follow these steps:
+1. Update your playbooks to include the `network.backup` collection.
+2. Replace any instances of `network.restore` roles with the corresponding `network.backup` roles.
+3. Review the [network.backup documentation](https://github.com/redhat-cop/network.backup) for any additional changes or enhancements.
 
-With this configured, simply run the following commands:
+### Support and Contributions
 
-```
-ansible-galaxy collection install network.base
-ansible-galaxy collection install network.restore
-```
+For any issues, questions, or contributions, please refer to the `network.backup` repository. We appreciate your understanding and cooperation during this transition.
 
-## Use Cases
-
-#### Fetch backup and restore a network appliance's configuration.
-```yaml
-run.yml
----
-- name: The network.restore play
-  hosts: ios
-  gather_facts: true
-
-  tasks:
-    - name: The network restore task
-      ansible.builtin.include_role:
-        name: network.restore.run
-      vars:
-        operation: restore
-        data_store:
-          local: "{{ network_backup_path }}"
-```
-
-#### Fetch backup from remote repo and restore a network appliance's configuration.
-```yaml
-run.yml
----
-- name: The network.restore play
-  hosts: ios
-  gather_facts: true
-
-  tasks:
-    - name: The network restore task
-      ansible.builtin.include_role:
-        name: network.restore.run
-      vars:
-        operation: restore
-        data_store:
-          scm:
-            origin:
-              url: "{{ github_repo }}"
-              user:
-                name: "{{ github_username }}"
-                email: "{{ user_email }}"
-              token: "{{ token }}"
-              path: "{{ path_to_backup_file }}"
-```
-
-## Testing
-
-The project uses tox to run `ansible-lint` and `ansible-test sanity`.
-Assuming this repository is checked out in the proper structure,
-e.g. `collections_root/ansible_collections/network/restore`, run:
-
-```shell
-  tox -e ansible-lint
-  tox -e py39-sanity
-```
-
-To run integration tests, ensure that your inventory has a `network_restore` group.
-Depending on what test target you are running, comment out the host(s).
-
-```shell
-[network_hosts]
-ios
-nxos
-
-[ios:vars]
-< enter inventory details for this group >
-
-[nxos:vars]
-< enter inventory details for this group >
-```
-
-```shell
-  ansible-test network-integration -i /path/to/inventory --python 3.9 [target]
-```
-
-## Contributing
-
-We welcome community contributions to this collection. If you find problems, please open an issue or create a PR against this repository.
-
-Don't know how to start? Refer to the [Ansible community guide](https://docs.ansible.com/ansible/devel/community/index.html)!
-
-Want to submit code changes? Take a look at the [Quick-start development guide](https://docs.ansible.com/ansible/devel/community/create_pr_quick_start.html).
-
-We also use the following guidelines:
-
-* [Collection review checklist](https://docs.ansible.com/ansible/devel/community/collection_contributors/collection_reviewing.html)
-* [Ansible development guide](https://docs.ansible.com/ansible/devel/dev_guide/index.html)
-* [Ansible collection development guide](https://docs.ansible.com/ansible/devel/dev_guide/developing_collections.html#contributing-to-collections)
-
-### Code of Conduct
-This collection follows the Ansible project's
-[Code of Conduct](https://docs.ansible.com/ansible/devel/community/code_of_conduct.html).
-Please read and familiarize yourself with this document.
-
-## Release notes
-
-Release notes are available [here](https://github.com/redhat-cop/network.restore/blob/main/CHANGELOG.rst).
-
-## Related information
-
-- [Developing network resource modules](https://github.com/ansible-network/networking-docs/blob/main/rm_dev_guide.md)
-- [Ansible Networking docs](https://github.com/ansible-network/networking-docs)
-- [Ansible Collection Overview](https://github.com/ansible-collections/overview)
-- [Ansible Roles overview](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_reuse_roles.html)
-- [Ansible User guide](https://docs.ansible.com/ansible/latest/user_guide/index.html)
-- [Ansible Developer guide](https://docs.ansible.com/ansible/latest/dev_guide/index.html)
-- [Ansible Community Code of Conduct](https://docs.ansible.com/ansible/latest/community/code_of_conduct.html)
-
-## Licensing
-
-GNU General Public License v3.0 or later.
-
-See [LICENSE](https://www.gnu.org/licenses/gpl-3.0.txt) to see the full text.
+Thank you for using `network.restore`.
